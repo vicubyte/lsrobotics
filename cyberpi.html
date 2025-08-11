@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="icon" type="image/png" sizes="512x512" href="srcs/comm/web_favicon.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="srcs/comm/web_favicon.png">
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <button class="home-btn" onclick="irHome()">↑</button>
+    <div class="slide-counter"><span class="num-big" id="slide-number">01</span>/<span id="slide-total">01</span></div>
+    <div class="image-center" id="slide-media-container"></div>
+    <button class="prev-btn" onclick="accionPrev()">←</button>
+    <button class="next-btn" onclick="accionNext()">→</button>
+    <div class="info-box">
+        <div id="slide-text">Text.</div>
+    </div>
+    <script src="cyberpi/cyberpi_script.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+      
+        const firebaseConfig = {
+          apiKey: "AIzaSyB5G4RxthuaADgJg1-xuJCtR_oOOYrBals",
+          authDomain: "lsrobotics-78127.firebaseapp.com",
+          projectId: "lsrobotics-78127",
+          storageBucket: "lsrobotics-78127.firebasestorage.app",
+          messagingSenderId: "32125955765",
+          appId: "1:32125955765:web:7ee8712982da4005c558fc"
+        };
+      
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+      
+        async function registrarAccion(accion) {
+          const user = auth.currentUser;
+          if (!user) return;
+      
+          const urlParams = new URLSearchParams(window.location.search);
+          const actividad = urlParams.get("lvl") || "desconocida";
+          const robot = localStorage.getItem("selectedRobot") || "desconocido";
+      
+          try {
+            await addDoc(collection(db, "acciones"), {
+              uid: user.uid,
+              accion,
+              timestamp: serverTimestamp(),
+              actividad,
+              diapositiva: currentSlide || 0,
+              robot
+            });
+          } catch (e) {
+            console.error("Register error:", e);
+          }
+        }
+      
+        window.registrarAccion = registrarAccion;
+      
+        onAuthStateChanged(auth, user => {
+            if (!user && location.hostname === "localhost") {
+                console.warn("Not authenticated");
+                return;
+            }
+
+            if (user) {
+                registrarAccion("start");
+            }
+        });
+      </script>      
+</body>
+</html>

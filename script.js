@@ -3,5 +3,5 @@ function changeTitle() {
     document.getElementById("slide-device").style.display = "flex";
 }
 window.onload = function() {
-    setTimeout(changeTitle, 2000);
+    setTimeout(changeTitle, 200);
 };

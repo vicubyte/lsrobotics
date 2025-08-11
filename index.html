@@ -40,47 +40,92 @@
         </div>
     </div>
     <div id="slide-mb2" class="slide">
-        <h1>Tutorial activities</h1>
+        <h1>mBot2 activities</h1>
         <div class="activity-container">
             <button class="activity" onclick="iniciarActividad(1)">
                 <span class="activity-number">1</span>
-                <img src="srcs/comm/act1.png" alt="Activity 1" class="activity-image">
+                <img src="srcs/mbot2/activities/act1.png" alt="Activity 1" class="activity-image">
                 <span class="activity-name">Meet mBot2!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(2)">
                 <span class="activity-number">2</span>
-                <img src="srcs/comm/act2.png" alt="Activity 2" class="activity-image">
+                <img src="srcs/mbot2/activities/act2.png" alt="Activity 2" class="activity-image">
                 <span class="activity-name">Let's move!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(3)">
                 <span class="activity-number">3</span>
-                <img src="srcs/comm/act3.png" alt="Activity 3" class="activity-image">
+                <img src="srcs/mbot2/activities/act3.png" alt="Activity 3" class="activity-image">
                 <span class="activity-name">LED show!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(4)">
                 <span class="activity-number">4</span>
-                <img src="srcs/comm/act4.png" alt="Activity 4" class="activity-image">
+                <img src="srcs/mbot2/activities/act4.png" alt="Activity 4" class="activity-image">
                 <span class="activity-name">Listen to mBot2!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(5)">
                 <span class="activity-number">5</span>
-                <img src="srcs/comm/act5.png" alt="Activity 5" class="activity-image">
+                <img src="srcs/mbot2/activities/act5.png" alt="Activity 5" class="activity-image">
                 <span class="activity-name">Sensing light!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(6)">
                 <span class="activity-number">6</span>
-                <img src="srcs/comm/act6.png" alt="Activity 6" class="activity-image">
+                <img src="srcs/mbot2/activities/act6.png" alt="Activity 6" class="activity-image">
                 <span class="activity-name">Display control!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(7)">
                 <span class="activity-number">7</span>
-                <img src="srcs/comm/act7.png" alt="Activity 7" class="activity-image">
+                <img src="srcs/mbot2/activities/act7.png" alt="Activity 7" class="activity-image">
                 <span class="activity-name">Ultrasonic!</span>
             </button>
             <button class="activity" onclick="iniciarActividad(8)">
                 <span class="activity-number">8</span>
-                <img src="srcs/comm/act8.png" alt="Activity 8" class="activity-image">
+                <img src="srcs/mbot2/activities/act8.png" alt="Activity 8" class="activity-image">
                 <span class="activity-name">Curved movements!</span>
+            </button>
+        </div>
+    </div>
+    <div id="slide-cpi" class="slide">
+        <h1>CyberPi activities</h1>
+        <div class="activity-container">
+            <button class="activity" onclick="iniciarActividad(1)">
+                <span class="activity-number">1</span>
+                <img src="srcs/cyberpi/activities/act1.png" alt="Activity 1" class="activity-image">
+                <span class="activity-name">Magic CyberPi!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(2)">
+                <span class="activity-number">2</span>
+                <img src="srcs/cyberpi/activities/act2.png" alt="Activity 2" class="activity-image">
+                <span class="activity-name">Display animation!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(3)">
+                <span class="activity-number">3</span>
+                <img src="srcs/cyberpi/activities/act3.png" alt="Activity 3" class="activity-image">
+                <span class="activity-name">CyberBrush!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(4)">
+                <span class="activity-number">4</span>
+                <img src="srcs/cyberpi/activities/act4.png" alt="Activity 4" class="activity-image">
+                <span class="activity-name">CyberBand!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(5)">
+                <span class="activity-number">5</span>
+                <img src="srcs/cyberpi/activities/act5.png" alt="Activity 5" class="activity-image">
+                <span class="activity-name">Rocket controller!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(6)">
+                <span class="activity-number">6</span>
+                <img src="srcs/cyberpi/activities/act6.png" alt="Activity 6" class="activity-image">
+                <span class="activity-name">Rocket Pro!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(7)">
+                <span class="activity-number">7</span>
+                <img src="srcs/cyberpi/activities/act7.png" alt="Activity 7" class="activity-image">
+                <span class="activity-name">Temperature control!</span>
+            </button>
+            <button class="activity" onclick="iniciarActividad(8)">
+                <span class="activity-number">8</span>
+                <img src="srcs/cyberpi/activities/act8.png" alt="Activity 8" class="activity-image">
+                <span class="activity-name">Smart door!</span>
             </button>
         </div>
     </div>
@@ -159,6 +204,8 @@
             selectedRobot = "CyberPi";
             localStorage.setItem("selectedRobot", selectedRobot);
             await registrarEvento("robot", { selectedRobot });
+            document.getElementById("slide-device").style.display = "none";
+            document.getElementById("slide-cpi").style.display = "flex";
         });
 
         document.querySelector("#dev_mb2").addEventListener("click", async () => {
@@ -172,7 +219,13 @@
         window.iniciarActividad = async (nivel) => {
             const robot = localStorage.getItem("selectedRobot") || "desconocido";
             await registrarEvento("actividad", { robot, actividad: nivel });
-            window.location.href = `mbot2.html?lvl=${nivel}`;
+            if (robot === "mBot2") {
+                window.location.href = `mbot2.html?lvl=${nivel}`;
+            } else if (robot === "CyberPi") {
+                window.location.href = `cyberpi.html?lvl=${nivel}`;
+            } else {
+                alert("Por favor selecciona un robot antes de continuar.");
+            }
         };
 
         loginBtn.addEventListener('click', async () => {
