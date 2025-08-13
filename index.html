@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technology & Innovation</title>
+    <title>Technology & Innovat2ion</title>
     <link rel="icon" type="image/png" sizes="512x512" href="srcs/comm/web_favicon.png">
     <link rel="apple-touch-icon" sizes="512x512" href="srcs/comm/web_favicon.png">
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>        
 </head>
 <body>
+    <button id="homeBtn" class="home-btn" style="display:none" aria-label="Back">↑</button>
+    <button id="dashBtn" class="button">Dashboard</button>
     <div id="slide-title">
         <div class="tech-inno">TECHNOLOGY<br>&<br>INNOVATION</div>
         <div class="logos">
@@ -52,32 +53,32 @@
                 <img src="srcs/mbot2/activities/act2.png" alt="Activity 2" class="activity-image">
                 <span class="activity-name">Let's move!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(3)">
+            <button class="activity" onclick="iniciarActividad(3)">
                 <span class="activity-number">3</span>
                 <img src="srcs/mbot2/activities/act3.png" alt="Activity 3" class="activity-image">
                 <span class="activity-name">LED show!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(4)">
+            <button class="activity" onclick="iniciarActividad(4)">
                 <span class="activity-number">4</span>
                 <img src="srcs/mbot2/activities/act4.png" alt="Activity 4" class="activity-image">
                 <span class="activity-name">Listen to mBot2!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(5)">
+            <button class="activity" onclick="iniciarActividad(5)">
                 <span class="activity-number">5</span>
                 <img src="srcs/mbot2/activities/act5.png" alt="Activity 5" class="activity-image">
                 <span class="activity-name">Sensing light!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(6)">
+            <button class="activity" onclick="iniciarActividad(6)">
                 <span class="activity-number">6</span>
                 <img src="srcs/mbot2/activities/act6.png" alt="Activity 6" class="activity-image">
                 <span class="activity-name">Display control!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(7)">
+            <button class="activity" onclick="iniciarActividad(7)">
                 <span class="activity-number">7</span>
                 <img src="srcs/mbot2/activities/act7.png" alt="Activity 7" class="activity-image">
                 <span class="activity-name">Ultrasonic!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(8)">
+            <button class="activity" onclick="iniciarActividad(8)">
                 <span class="activity-number">8</span>
                 <img src="srcs/mbot2/activities/act8.png" alt="Activity 8" class="activity-image">
                 <span class="activity-name">Curved movements!</span>
@@ -92,37 +93,37 @@
                 <img src="srcs/cyberpi/activities/act1.png" alt="Activity 1" class="activity-image">
                 <span class="activity-name">Magic CyberPi!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(2)">
+            <button class="activity" onclick="iniciarActividad(2)">
                 <span class="activity-number">2</span>
                 <img src="srcs/cyberpi/activities/act2.png" alt="Activity 2" class="activity-image">
                 <span class="activity-name">Display animation!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(3)">
+            <button class="activity" onclick="iniciarActividad(3)">
                 <span class="activity-number">3</span>
                 <img src="srcs/cyberpi/activities/act3.png" alt="Activity 3" class="activity-image">
                 <span class="activity-name">CyberBrush!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(4)">
+            <button class="activity" onclick="iniciarActividad(4)">
                 <span class="activity-number">4</span>
                 <img src="srcs/cyberpi/activities/act4.png" alt="Activity 4" class="activity-image">
                 <span class="activity-name">CyberBand!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(5)">
+            <button class="activity" onclick="iniciarActividad(5)">
                 <span class="activity-number">5</span>
                 <img src="srcs/cyberpi/activities/act5.png" alt="Activity 5" class="activity-image">
                 <span class="activity-name">Rocket controller!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(6)">
+            <button class="activity" onclick="iniciarActividad(6)">
                 <span class="activity-number">6</span>
                 <img src="srcs/cyberpi/activities/act6.png" alt="Activity 6" class="activity-image">
                 <span class="activity-name">Rocket Pro!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(7)">
+            <button class="activity" onclick="iniciarActividad(7)">
                 <span class="activity-number">7</span>
                 <img src="srcs/cyberpi/activities/act7.png" alt="Activity 7" class="activity-image">
                 <span class="activity-name">Temperature control!</span>
             </button>
-            <button class="activity" onclick="iniciarActividadd(8)">
+            <button class="activity" onclick="iniciarActividad(8)">
                 <span class="activity-number">8</span>
                 <img src="srcs/cyberpi/activities/act8.png" alt="Activity 8" class="activity-image">
                 <span class="activity-name">Smart door!</span>
@@ -132,7 +133,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
         import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, doc, setDoc, getDoc, query, where, onSnapshot, orderBy } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -154,21 +155,130 @@
         const loginBtn = document.getElementById('loginBtn');
         const userInfo = document.getElementById('userInfo');
         const logoutBtn = document.getElementById('logoutBtn');
+        const homeBtn = document.getElementById('homeBtn');
+        const dashBtn = document.getElementById("dashBtn");
 
         let selectedRobot = null;
+        let currentView = "welcome";
+
+        const WELCOME_DELAY = 1000; // ms
+        let welcomeTimerId = null;
+
+        // Cache vivo por robot (se actualiza con onSnapshot)
+        const nivelesCache = {
+            mBot2: new Map(),     // nivel -> enabled
+            CyberPi: new Map()
+        };
+
+        // Para poder desuscribir si hiciera falta
+        let unsubMbot2 = null, unsubCpi = null;
+        let listenersStarted = false;
+
+        function trackNavigate({ to, reason, extra = {}, robot }) {
+            const robotVal = robot ?? selectedRobot ?? null;
+            const fromView = currentView;                     // captura el "from"
+            currentView = to.startsWith("robot:") ? "robot" : to;  // actualiza la vista YA
+
+            registrarEvento("nav", {
+                from: fromView,
+                to,
+                reason,
+                robot: robotVal,
+                ...extra
+            }).catch(() => {});
+        }
+
+
+        function setGuestModeDefaults() {
+            // Solo nivel 1 activo para ambos robots
+            nivelesCache.mBot2.clear();
+            nivelesCache.CyberPi.clear();
+            for (let i = 1; i <= 8; i++) {
+                nivelesCache.mBot2.set(i, i === 1);
+                nivelesCache.CyberPi.set(i, i === 1);
+            }
+        }
+
+        function aplicarBloqueosUI(robot) {
+            const cache = robot === 'mBot2' ? nivelesCache.mBot2 : nivelesCache.CyberPi;
+            const scope = robot === 'mBot2' ? '#slide-mb2' : '#slide-cpi';
+
+            document.querySelectorAll(`${scope} .activity`).forEach(btn => {
+                const n = Number(btn.querySelector('.activity-number')?.textContent);
+
+                // Si el snapshot aún no llegó, por defecto: SOLO el nivel 1 habilitado
+                const enabled = cache.has(n) ? !!cache.get(n) : (n === 1);
+
+                btn.classList.toggle('disabled', !enabled);
+                if (!enabled) btn.setAttribute('aria-disabled', 'true');
+                else btn.removeAttribute('aria-disabled');
+            });
+        }
+
+        function startNivelesListeners() {
+            // mBot2
+            const qM = query(
+                collection(db, "niveles"),
+                where("robot","==","mBot2"),
+                orderBy("nivel","asc")
+            );
+            unsubMbot2 = onSnapshot(qM, (snap) => {
+                nivelesCache.mBot2.clear();
+                snap.forEach(d => {
+                const data = d.data();
+                nivelesCache.mBot2.set(Number(data.nivel), !!data.enabled);
+                });
+                if (localStorage.getItem("selectedRobot") === "mBot2") {
+                aplicarBloqueosUI("mBot2");
+                }
+            });
+
+            // CyberPi
+            const qC = query(
+                collection(db, "niveles"),
+                where("robot","==","CyberPi"),
+                orderBy("nivel","asc")
+            );
+            unsubCpi = onSnapshot(qC, (snap) => {
+                nivelesCache.CyberPi.clear();
+                snap.forEach(d => {
+                const data = d.data();
+                nivelesCache.CyberPi.set(Number(data.nivel), !!data.enabled);
+                });
+                if (localStorage.getItem("selectedRobot") === "CyberPi") {
+                aplicarBloqueosUI("CyberPi");
+                }
+            });
+        }
 
         function updateUI(user) {
-        if (user) {
-            const fullName = user.displayName || "";
-            const firstName = fullName.split(" ")[0];
-            userInfo.textContent = `Welcome back, ${firstName}!`;
-            loginBtn.style.display = 'none';
-            logoutBtn.style.display = 'block';
-        } else {
-            userInfo.textContent = "";
-            loginBtn.style.display = 'block';
-            logoutBtn.style.display = 'none';
+            if (user) {
+                const fullName = user.displayName || "";
+                const firstName = fullName.split(" ")[0];
+                userInfo.textContent = `Welcome back, ${firstName}!`;
+                loginBtn.style.display = 'none';
+                logoutBtn.style.display = 'block';
+            } else {
+                userInfo.textContent = "";
+                loginBtn.style.display = 'block';
+                logoutBtn.style.display = 'none';
+            }
         }
+
+        async function checkAndShowDashboard(user) {
+            if (!user) {
+                dashBtn.style.display = "none";
+                return;
+            }
+            try {
+                const ref = doc(db, "usuarios", user.uid);
+                const snap = await getDoc(ref);
+                const isAdmin = !!snap.data()?.admin;
+                dashBtn.style.display = isAdmin ? "block" : "none";
+            } catch (e) {
+                console.warn("No pude leer el rol del usuario:", e);
+                dashBtn.style.display = "none";
+            }
         }
 
         async function registrarUsuario(user) {
@@ -200,33 +310,132 @@
             }
         }
 
-        document.querySelector("#dev_cpi").addEventListener("click", async () => {
-            selectedRobot = "CyberPi";
-            localStorage.setItem("selectedRobot", selectedRobot);
-            await registrarEvento("robot", { selectedRobot });
-            document.getElementById("slide-device").style.display = "none";
-            document.getElementById("slide-cpi").style.display = "flex";
+        document.querySelector("#dev_cpi").addEventListener("click", () => {
+            showRobot("CyberPi");
         });
 
-        document.querySelector("#dev_mb2").addEventListener("click", async () => {
-            selectedRobot = "mBot2";
-            localStorage.setItem("selectedRobot", selectedRobot);
-            await registrarEvento("robot", { selectedRobot });
-            document.getElementById("slide-device").style.display = "none";
-            document.getElementById("slide-mb2").style.display = "flex";
+        document.querySelector("#dev_mb2").addEventListener("click", () => {
+            showRobot("mBot2");
         });
+
+        function showWelcome() {
+            document.getElementById("slide-title").style.display = "flex";
+            document.getElementById("slide-device").style.display = "none";
+            document.getElementById("slide-mb2").style.display = "none";
+            document.getElementById("slide-cpi").style.display = "none";
+            // si tienes botón home:
+            if (homeBtn) homeBtn.style.display = "none";
+        }
+
+        function showDevice() {
+            document.getElementById("slide-title").style.display = "none";
+            document.getElementById("slide-device").style.display = "flex";
+            document.getElementById("slide-mb2").style.display = "none";
+            document.getElementById("slide-cpi").style.display = "none";
+            if (homeBtn) homeBtn.style.display = "none";
+            // para que el botón Atrás funcione intuitivo
+            history.replaceState({view:"home"}, "", "#home");
+        }
+
+        function showRobot(robot, reason = "select_robot") {
+            if (welcomeTimerId) { clearTimeout(welcomeTimerId); welcomeTimerId = null; }
+            
+            document.getElementById("slide-title").style.display  = "none";
+            document.getElementById("slide-device").style.display = "none";
+            document.getElementById("slide-mb2").style.display    = "none";
+            document.getElementById("slide-cpi").style.display    = "none";
+            
+            selectedRobot = robot;
+            trackNavigate({ to: `robot:${robot}`, reason, robot });
+            localStorage.setItem("selectedRobot", robot);
+
+            document.getElementById("slide-mb2").style.display = robot === "mBot2" ? "flex" : "none";
+            document.getElementById("slide-cpi").style.display = robot === "CyberPi" ? "flex" : "none";
+
+            if (homeBtn) homeBtn.style.display = "block";
+
+            aplicarBloqueosUI(robot);
+            history.pushState({view:"robot", robot}, "", robot === "mBot2" ? "#mbot2" : "#cyberpi");
+        }
+
+        function goHome(reason = "home_button") {
+            if (welcomeTimerId) { clearTimeout(welcomeTimerId); welcomeTimerId = null; }
+            showDevice();
+            const wasRobot = selectedRobot;         // por si quieres saber desde qué robot volvió
+            selectedRobot = null;
+            localStorage.removeItem("selectedRobot");
+            trackNavigate({ to: "device", reason, robot: wasRobot });
+        }
+
+            // botón home
+        homeBtn.addEventListener("click", () => goHome("home_button"));
+
+            // soportar el botón Atrás del navegador
+        window.addEventListener("popstate", () => {
+            const h = location.hash.toLowerCase();
+            if (h === "#mbot2")      showRobot("mBot2", "browser_back");
+            else if (h === "#cyberpi") showRobot("CyberPi", "browser_back");
+            else                      goHome("browser_back");
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+            setGuestModeDefaults();
+            
+            const skip = sessionStorage.getItem("skipWelcome") === "1";
+
+            if (skip) {
+                sessionStorage.removeItem("skipWelcome"); // consumir pase
+                const h = location.hash.toLowerCase();
+                if (h === "#cyberpi") { showRobot("CyberPi", "skip_welcome"); return; }
+                if (h === "#mbot2")   { showRobot("mBot2", "skip_welcome");   return; }
+                // si no hay hash válido, ir al selector
+                showDevice();
+                return; // no sigas con el flujo normal
+            }
+
+            // ----- Flujo normal (sin pase) -----
+            showWelcome();
+
+            // Limpia hash SOLO cuando no hay skipWelcome
+            if (location.hash) {
+                selectedRobot = null;
+                localStorage.removeItem("selectedRobot");
+                history.replaceState({ view: "welcome" }, "", location.pathname + location.search);
+            }
+
+            // Después del delay, pasar a device
+            welcomeTimerId = setTimeout(() => {
+                if (!selectedRobot) {
+                trackNavigate({ to: "device", reason: "auto_timeout" });
+                showDevice();
+                }
+            }, WELCOME_DELAY);
+        });
+
 
         window.iniciarActividad = async (nivel) => {
             const robot = localStorage.getItem("selectedRobot") || "desconocido";
-            await registrarEvento("actividad", { robot, actividad: nivel });
-            if (robot === "mBot2") {
-                window.location.href = `mbot2.html?lvl=${nivel}`;
-            } else if (robot === "CyberPi") {
-                window.location.href = `cyberpi.html?lvl=${nivel}`;
-            } else {
-                alert("Por favor selecciona un robot antes de continuar.");
-            }
+
+            // No dejes entrar si el nivel está deshabilitado
+            const cache = robot === "mBot2" ? nivelesCache.mBot2 : nivelesCache.CyberPi;
+            const flag = cache.get(Number(nivel));
+            if (flag === false) return;
+
+            // Ticket de 1 uso con vencimiento corto
+            sessionStorage.setItem("entryTicket", JSON.stringify({
+                robot,
+                lvl: Number(nivel),
+                t: Date.now()
+            }));
+
+            // (opcional) registra evento
+            registrarEvento("actividad", { robot, actividad: nivel }).catch(()=>{});
+
+            // Redirige
+            const target = robot === "mBot2" ? "mbot2.html" : "cyberpi.html";
+            window.location.href = `${target}?lvl=${nivel}`;
         };
+
 
         loginBtn.addEventListener('click', async () => {
             const provider = new GoogleAuthProvider();
@@ -251,8 +460,34 @@
             }
         });
 
-        onAuthStateChanged(auth, user => {
+        onAuthStateChanged(auth, async (user) => {
             updateUI(user);
+            await checkAndShowDashboard(user);
+            if (user) {
+                // Usuario logeado: activa listeners en vivo (si no están)
+                if (!listenersStarted) {
+                startNivelesListeners();
+                listenersStarted = true;
+                }
+            } else {
+                // Sin login: corta listeners y aplica modo invitado
+                if (unsubMbot2) { unsubMbot2(); unsubMbot2 = null; }
+                if (unsubCpi) { unsubCpi(); unsubCpi = null; }
+                listenersStarted = false;
+
+                setGuestModeDefaults();
+
+                // Refresca la UI del robot que esté visible/seleccionado
+                const robotNow = localStorage.getItem("selectedRobot");
+                if (robotNow === "mBot2" || robotNow === "CyberPi") {
+                aplicarBloqueosUI(robotNow);
+                }
+            }
+        });
+
+        dashBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            window.location.href = "teacher.html";
         });
 
     </script>

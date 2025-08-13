@@ -10,6 +10,38 @@
     
 </head>
 <body>
+  <script>
+  (function () {
+    try {
+      const params = new URLSearchParams(location.search);
+      const lvl = Number(params.get("lvl"));
+      const robot = location.pathname.toLowerCase().includes("mbot2") ? "mBot2" : "CyberPi";
+
+      const ticketStr = sessionStorage.getItem("entryTicket");
+      sessionStorage.removeItem("entryTicket"); // consumir SIEMPRE
+
+      if (!ticketStr) throw new Error("no-ticket");
+
+      const ticket = JSON.parse(ticketStr);
+      const maxAgeMs = 15000; // 15s de ventana
+
+      const valid =
+        ticket &&
+        ticket.robot === robot &&
+        Number(ticket.lvl) === lvl &&
+        (Date.now() - Number(ticket.t)) < maxAgeMs;
+
+      if (!valid) throw new Error("invalid-ticket");
+
+      // asegura coherencia con lo que muestra el index
+      localStorage.setItem("selectedRobot", robot);
+    } catch (e) {
+      // si no hay ticket válido, regresa a la selección de device
+      location.replace("index.html#home");
+    }
+  })();
+  </script>
+
     <button class="home-btn" onclick="irHome()">↑</button>
     <div class="slide-counter"><span class="num-big" id="slide-number">01</span>/<span id="slide-total">01</span></div>
     <div class="image-center" id="slide-media-container"></div>

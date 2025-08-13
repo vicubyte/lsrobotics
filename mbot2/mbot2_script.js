@@ -124,7 +124,8 @@ function prevSlide() {
 
 async function irHome() {
     await registrarAccion("home");
-    window.location.href = 'index.html';
+    sessionStorage.setItem("skipWelcome", "1");
+    location.href = "index.html#mbot2";
 }
 
 async function accionNext() {
