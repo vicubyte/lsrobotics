@@ -123,9 +123,28 @@ function prevSlide() {
 }
 
 async function irHome() {
-    await registrarAccion("home");
+    // 1) Registrar la acción (si falla, igual seguimos)
+    try {
+        await registrarAccion("home");
+    } catch (e) {
+        console.warn("No se pudo registrar 'home':", e);
+    }
+
+    // 2) Limpiar el flag que permite refrescar este nivel
+    const params = new URLSearchParams(location.search);
+    const lvl = Number(params.get("lvl") || 0);
+    const isMbot2 = location.pathname.toLowerCase().includes("mbot2");
+    const robot = isMbot2 ? "mBot2" : "CyberPi";
+    if (lvl) {
+        sessionStorage.removeItem(`levelSession:${robot}:${lvl}`);
+    }
+
+    // 3) Saltar el welcome al volver al index
     sessionStorage.setItem("skipWelcome", "1");
-    location.href = "index.html#mbot2";
+
+    // 4) Ir directo a la vista del robot correspondiente
+    const hash = isMbot2 ? "#mbot2" : "#cyberpi";
+    location.href = `index.html${hash}`;
 }
 
 async function accionNext() {

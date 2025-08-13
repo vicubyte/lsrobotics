@@ -11,35 +11,42 @@
 </head>
 <body>
   <script>
-  (function () {
-    try {
+    (function () {
       const params = new URLSearchParams(location.search);
-      const lvl = Number(params.get("lvl"));
+      const lvl = Number(params.get("lvl") || 0);
       const robot = location.pathname.toLowerCase().includes("mbot2") ? "mBot2" : "CyberPi";
+      const key = `levelSession:${robot}:${lvl}`; // flag para permitir refresh
 
-      const ticketStr = sessionStorage.getItem("entryTicket");
-      sessionStorage.removeItem("entryTicket"); // consumir SIEMPRE
+      // 1) Si ya hay flag, permitir recarga directa
+      if (sessionStorage.getItem(key) === "1") {
+        localStorage.setItem("selectedRobot", robot);
+        return;
+      }
 
-      if (!ticketStr) throw new Error("no-ticket");
+      try {
+        const ticketStr = sessionStorage.getItem("entryTicket");
+        if (!ticketStr) throw new Error("no-ticket");
 
-      const ticket = JSON.parse(ticketStr);
-      const maxAgeMs = 15000; // 15s de ventana
+        const ticket = JSON.parse(ticketStr);
+        const maxAgeMs = 15000; // tu ventana (15s). Si quieres, usa 5*60*1000 para 5min.
+        const valid =
+          ticket &&
+          ticket.robot === robot &&
+          Number(ticket.lvl) === lvl &&
+          (Date.now() - Number(ticket.t)) < maxAgeMs;
 
-      const valid =
-        ticket &&
-        ticket.robot === robot &&
-        Number(ticket.lvl) === lvl &&
-        (Date.now() - Number(ticket.t)) < maxAgeMs;
+        if (!valid) throw new Error("invalid-ticket");
 
-      if (!valid) throw new Error("invalid-ticket");
-
-      // asegura coherencia con lo que muestra el index
-      localStorage.setItem("selectedRobot", robot);
-    } catch (e) {
-      // si no hay ticket válido, regresa a la selección de device
-      location.replace("index.html#home");
-    }
-  })();
+        // 2) Consumir el ticket SOLO tras validar y habilitar refresh
+        sessionStorage.removeItem("entryTicket");
+        sessionStorage.setItem(key, "1");
+        localStorage.setItem("selectedRobot", robot);
+      } catch (e) {
+        // Limpieza y regreso al index (selector)
+        sessionStorage.removeItem("entryTicket");
+        location.replace("index.html#home");
+      }
+    })();
   </script>
 
     <button class="home-btn" onclick="irHome()">↑</button>
