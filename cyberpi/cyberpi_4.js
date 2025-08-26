@@ -1,127 +1,118 @@
 const slides = [
     {   //Slide 1
-        video: "srcs/mbot2/img4/img4_1.mp4",
-        text: `Learn how to make <strong>sounds</strong> with mBot2.`,
+        image: "srcs/cyberpi/img4/img4_1.png",
+        text: `Learn how to create a <strong>virtual drawing board</strong> with CyberPi.`,
         className: ""
     },
     {   //Slide 2
-        image: "srcs/mbot2/img4/img4_2.jpg",
-        text: `How is sound produced? Can we hear all sounds?<br>
-        What makes sounds different?`,
+        video: "srcs/cyberpi/img4/img4_2.mp4",
+        text: `What makes the pointer move on a smart TV?`,
         className: ""
     },
     {   //Slide 3
-        image: "srcs/mbot2/img4/img4_3.png",
-        text: `How does mBot2 produce sounds?`,
+        image: "srcs/cyberpi/img4/img4_3.png",
+        text: `How can we make CyberPi work as a pointer controller?`,
         className: "anim-shake"
     },
     {   //Slide 4
-        image: "srcs/mbot2/img4/img4_4.png",
-        text: `The mBot2 uses a <strong>speaker</strong> to produce sounds!<br>
-        What is a speaker? Where else do you find them?`,
+        image: "srcs/cyberpi/img4/img4_4.png",
+        text: `TCyberPi uses the <strong>gyroscope</strong> to know where it is pointing!`,
         className: ""
     },
     {   //Slide 5
-        video: "srcs/mbot2/img4/img4_5.mp4",
+        image: "srcs/cyberpi/img4/img4_5.png",
         text: `Let’s start coding!<br>
-        Create a program that plays a sound!`,
+        Create and set up a <strong>pencil sprite</strong> to draw on the virtual board.`,
         className: ""
     },
     {   //Slide 6
-        image: "srcs/mbot2/img4/img4_6.png",
-        text: `Drag the following blocks to the workspace.<br>
-        What happens when you press the <strong>space key</strong> in your keyboard?`,
+        image: "srcs/cyberpi/img4/img4_6.png",
+        text: `Select <strong>Sprites</strong>, click <strong>add</strong>, type <strong>pencil</strong> in the search box, select <strong>Pencil1</strong>, and click <strong>OK</strong>.<br>
+        A pencil will appear on the stage.`,
         className: ""
     },
     {   //Slide 7
-        image: "srcs/mbot2/img4/img4_7.png",
-        text: `Try some of the other sounds.<br>
-        Which ones do you like?`,
+        image: "srcs/cyberpi/img4/img4_7.png",
+        text: `Select the <strong>Panda</strong> sprite, click the <strong>x</strong> icon, confirm <strong>Delete</strong>, and then click <strong>Costumes</strong>.`,
         className: ""
     },
     {   //Slide 8
-        image: "srcs/mbot2/img4/img4_8.png",
-        text: `Change the <strong>space</strong> key to the <strong>h</strong> key.<br>
-        Now the sound will be activated with this key.`,
+        image: "srcs/cyberpi/img4/img4_8.png",
+        text: `The Costumes editor will open.<br>
+        Click <strong>Zoom to fit</strong> to see the entire canvas.`,
         className: ""
     },
     {   //Slide 9
-        image: "srcs/mbot2/img4/img4_9.png",
-        text: `Add more event and sound blocks.<br>
-        Interact with your classmates using sounds!`,
+        image: "srcs/cyberpi/img4/img4_9.png",
+        text: `Using the <strong>Select</strong> tool, select the entire pencil and <strong>rotate</strong> it as shown.`,
         className: ""
     },
     {   //Slide 10
-        image: "srcs/mbot2/img4/img4_10.png",
-        text: `Drag these blocks to the workspace.<br>
-        What does <strong>until done</strong> mean?`,
+        image: "srcs/cyberpi/img4/img4_10.png",
+        text: `Move the pencil until its tip is aligned with the center of the canvas.<br>
+        Then close the editor.`,
         className: ""
     },
     {   //Slide 11
-        image: "srcs/mbot2/img4/img4_11.png",
-        text: `Add the LED blocks to see the difference.<br>
-        Red color appears before the sound, but green at the same time.`,
+        image: "srcs/cyberpi/img4/img4_11.png",
+        text: `Select <strong>Devices</strong> and add the following blocks.<br>
+        <strong>Control Pencil1</strong> block is in Motion Sensing category.`,
         className: ""
     },
     {   //Slide 12
-        video: "srcs/mbot2/img4/img4_12.mp4",
-        text: `Let’s create a voice recorder with mBot2!<br>
-        We will speak and mBot2 will repeat.`,
+        video: "srcs/cyberpi/img4/img4_12.mp4",
+        text: `Click the <strong>Green Flag</strong> and move your CyberPi to control the pencil!`,
         className: ""
     },
     {   //Slide 13
-        image: "srcs/mbot2/img4/img4_13.png",
-        text: `Drag the following blocks to the workspace<br>
-        Button B will start the recording, the limit is 10 seconds.`,
+        image: "srcs/cyberpi/img4/img4_13.png",
+        text: `Drag the following blocks from the <strong>Events</strong> category, click <strong>New message</strong>, write <strong>pen up</strong> and select <strong>OK</strong>.`,
         className: ""
     },
     {   //Slide 14
-        image: "srcs/mbot2/img4/img4_14.png",
-        text: `To visually identify the process, add a display red block, this color indicates that recording started.`,
+        image: "srcs/cyberpi/img4/img4_14.png",
+        text: `Drag the following blocks with their respective broadcast messages.`,
         className: ""
     },
     {   //Slide 15
-        image: "srcs/mbot2/img4/img4_15.png",
-        text: `Drag these blocks to stop recording when button A is pressed. Green color indicates that recording is over.`,
+        image: "srcs/cyberpi/img4/img4_15.png",
+        text: `Select <strong>Sprites</strong>, click <strong>extension</strong>, and add the <strong>Pen</strong> extension. This will allow us to draw on the stage.`,
         className: ""
     },
     {   //Slide 16
-        image: "srcs/mbot2/img4/img4_16.png",
-        text: `Drag these blocks to play recording when joystick is pressed. Blue color indicates that recording is being played.`,
+        image: "srcs/cyberpi/img4/img4_16.png",
+        text: `<strong>Pen down</strong> will start drawing, <strong>pen up</strong> will stop drawing, and <strong>erase all</strong> is used to clear everything.`,
         className: ""
     },
     {   //Slide 17
-        image: "srcs/mbot2/img4/img4_17.png",
-        text: `Test your program with your classmates.<br>
-        Send them a nice message!`,
+        image: "srcs/cyberpi/img4/img4_17.png",
+        text: `From the <strong>Pen</strong> category, drag the following blocks with their respective message.`,
         className: ""
     },
     {   //Slide 18
-        image: "srcs/mbot2/img4/img4_18.png",
-        text: `Learn the difference between <strong>set</strong> and <strong>increase</strong> blocks. The minimum volume is 0 and the maximum is 100.`,
+        image: "srcs/cyberpi/img4/img4_18.png",
+        text: `Click the <strong>Green Flag</strong>, move your CyberPi and press the buttons to start drawing!`,
         className: ""
     },
     {   //Slide 19
-        image: "srcs/mbot2/img4/img4_19.png",
-        text: `If you check the volume box, a <strong>variable</strong> will appear in the stage. This number is the current volume.`,
+        image: "srcs/cyberpi/img4/img4_19.png",
+        text: `Select <strong>Background</strong>, and click <strong>Costumes</strong> to open the Costumes editor.`,
         className: ""
     },
     {   //Slide 20
-        image: "srcs/mbot2/img4/img4_20.png",
-        text: `Drag the following blocks to increase the volume.<br>
-        Is there a block to decrease the volume?`,
+        image: "srcs/cyberpi/img4/img4_20.png",
+        text: `Draw a board using the <strong>Rectangle</strong> tool.<br>
+        Set the <strong>fill</strong> to none and the <strong>outline</strong> width to 10. Then, close the editor.`,
         className: ""
     },
     {   //Slide 21
-        image: "srcs/mbot2/img4/img4_21.png",
-        text: `To decrease the volume, change the <strong>10</strong> to <strong>-10</strong>.<br>
-        Test your updated program!`,
+        image: "srcs/cyberpi/img4/img4_21.png",
+        text: `Test your virtual drawing board!`,
         className: ""
     },
     {   //Slide 22
-        image: "srcs/mbot2/img4/img4_22.png",
-        text: `<strong>Challenge:</strong> Change the audio speed when the joystick is pulled left and right.<br>
-        Add colors to all directions!`,
+        image: "srcs/cyberpi/img4/img4_22.png",
+        text: `<strong>Challenge:</strong> Add extra features for color selection and pen size to your virtual drawing board.`,
         className: ""
     },
 ];

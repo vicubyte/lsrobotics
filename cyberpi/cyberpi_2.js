@@ -28,7 +28,7 @@ const slides = [
     {   //Slide 6
         image: "srcs/cyberpi/img2/img2_6.png",
         text: `First, we need a new extension.<br>
-        Click <strong>extension</strong>, and add the <strong>Display+</strong>.`,
+        Click <strong>extension</strong>, and add <strong>Display+</strong>.`,
         className: ""
     },
     {   //Slide 7
@@ -61,7 +61,7 @@ const slides = [
     {   //Slide 12
         image: "srcs/cyberpi/img2/img2_12.png",
         text: `Always finish with a <strong>force rendering</strong> block to show the sprite on the screen.<br>
-        The <strong>upload</strong> the promgram and try it!`,
+        The <strong>upload</strong> the program and try it!`,
         className: ""
     },
     {   //Slide 13

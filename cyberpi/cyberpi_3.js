@@ -1,131 +1,121 @@
 const slides = [
     {   //Slide 1
-        video: "srcs/mbot2/img3/img3_1.mp4",
-        text: `Learn how to control <strong>lights</strong> with mBot2.`,
+        image: "srcs/cyberpi/img3/img3_1.png",
+        text: `Learn how to control a band with <strong>messages</strong> in CyberPi.`,
         className: ""
     },
     {   //Slide 2
-        image: "srcs/mbot2/img3/img3_2.png",
-        text: `What is light? Why is it important?<br>
-        Do you know some light sources?`,
-        className: ""
-    },
-    {   //Slide 3
-        image: "srcs/mbot2/img3/img3_3.png",
-        text: `How does mBot2 emit light?`,
+        image: "srcs/cyberpi/img3/img3_2.png",
+        text: `What do we do when an earthquake alarm sounds?`,
         className: "anim-shake"
     },
+    {   //Slide 3
+        image: "srcs/cyberpi/img3/img3_3.png",
+        text: `The alarm is an event that tells us to act.`,
+        className: ""
+    },
     {   //Slide 4
-        image: "srcs/mbot2/img3/img3_4.png",
-        text: `The mBot2 uses five <strong>LED</strong> to emit light!<br>
-        What is an <i title="Light-Emitting Diode">LED</i>? Where else do you find them?`,
+        video: "srcs/cyberpi/img3/img3_4.mp4",
+        text: `In mBlock, a message is an event that helps other sprites or devices know what to do.`,
         className: ""
     },
     {   //Slide 5
-        video: "srcs/mbot2/img3/img3_5.mp4",
+        image: "srcs/cyberpi/img3/img3_5.png",
         text: `Let’s start coding!<br>
-        Create a program that plays an LED animation!`,
+        Create a virtual band with CyberPi.`,
         className: ""
     },
     {   //Slide 6
-        image: "srcs/mbot2/img3/img3_6.png",
-        text: `Drag the following blocks to the workspace.<br>
-        What happens when you press the Button A in mBot2?`,
+        image: "srcs/cyberpi/img3/img3_6.png",
+        text: `First, we need a new category.<br>
+        Go to <strong>Sprites</strong>, click <strong>extension</strong>, and add <strong>Music</strong>.`,
         className: ""
     },
     {   //Slide 7
-        image: "srcs/mbot2/img3/img3_7.png",
-        text: `Try all the other animations.<br>
-        Which is your favorite?`,
+        image: "srcs/cyberpi/img3/img3_7.png",
+        text: `Then, select the <strong>Panda</strong> sprite, click the <strong>x</strong> icon and confirm <strong>Delete</strong>.`,
         className: ""
     },
     {   //Slide 8
-        image: "srcs/mbot2/img3/img3_8.png",
-        text: `Change the second block to the display block.<br>
-        Press the Button A in mBot2 and see what happens.`,
+        image: "srcs/cyberpi/img3/img3_8.png",
+        text: `Let's add two sprites. First, click the <strong>+</strong> icon and a window will open.`,
         className: ""
     },
     {   //Slide 9
-        image: "srcs/mbot2/img3/img3_9.png",
-        text: `When you click in one color, an individual led editor will display.<br>
-        Change the colors and try your code!`,
+        image: "srcs/cyberpi/img3/img3_9.png",
+        text: `Search for <strong>"Drum Kit"</strong> and confirm with <strong>OK</strong>. You will see it in the Sprites tab.`,
         className: ""
     },
     {   //Slide 10
-        image: "srcs/mbot2/img3/img3_10.png",
-        text: `Your mBot2 is living in Peru, so let’s display the Peruvian flag!`,
+        image: "srcs/cyberpi/img3/img3_10.png",
+        text: `Now, search for <strong>"Drum-cymbal"</strong> and add it as well. You should see both sprites separately.`,
         className: ""
     },
     {   //Slide 11
-        image: "srcs/mbot2/img3/img3_11.png",
-        text: `This code will display the Peruvian flag!<br>
-        Let’s try the Mexican flag, do you remember the colors?`,
+        image: "srcs/cyberpi/img3/img3_11.png",
+        text: `Let’s change the background!<br>
+        Go to <strong>Background</strong> and click the + icon.`,
         className: ""
     },
     {   //Slide 12
-        image: "srcs/mbot2/img3/img3_12.png",
-        text: `This code will display the Mexican flag!<br>
-        Which flag is it like? Let’s try the French flag, do you remember the colors?`,
+        image: "srcs/cyberpi/img3/img3_12.png",
+        text: `Click on <strong>indoors</strong>, scroll to the end and select <strong>"Spotlight-stage2"</strong>. Then confirm with <strong>OK</strong>.`,
         className: ""
     },
     {   //Slide 13
-        image: "srcs/mbot2/img3/img3_13.png",
-        text: `This code will display the French flag!<br>
-        Finally, let’s try the German flag, do you remember the colors?`,
+        image: "srcs/cyberpi/img3/img3_13.png",
+        text: `You will now see the complete stage. Arrange the drum and cymbal as you like.`,
         className: ""
     },
     {   //Slide 14
-        image: "srcs/mbot2/img3/img3_14.png",
-        text: `This code will display the German flag!<br>
-        How does black look like?`,
+        image: "srcs/cyberpi/img3/img3_14.png",
+        text: `After that, go to <strong>Devices</strong> and select <strong>Live</strong>.<br>
+        Then, from the <strong>Events</strong> category, drag the block <strong>when CyberPi tilted left</strong>.`,
         className: ""
     },
     {   //Slide 15
-        video: "srcs/mbot2/img3/img3_15.mp4",
-        text: `Let’s code a sequence of colors!<br>
-        We will program a traffic light.`,
+        image: "srcs/cyberpi/img3/img3_15.png",
+        text: `Next, add the block <strong>broadcast</strong>.<br>
+        Click on <strong>message</strong>, choose <strong>New message</strong>, type <strong>cymbal</strong>, and confirm.`,
         className: ""
     },
     {   //Slide 16
-        image: "srcs/mbot2/img3/img3_16.png",
-        text: `Drag the following blocks to the workspace.<br>
-        This code will display red color for 1 second, then turn of all LED.`,
+        image: "srcs/cyberpi/img3/img3_16.png",
+        text: `Add another block, this time selecting <strong>tilted backward</strong>, and set the message to <strong>drum</strong>.`,
         className: ""
     },
     {   //Slide 17
-        image: "srcs/mbot2/img3/img3_17.png",
-        text: `Add two more blocks. Change the time and color to match a traffic light!<br>
-        What happens after yellow?`,
+        image: "srcs/cyberpi/img3/img3_17.png",
+        text: `Go back to <strong>Sprites</strong>, select the <strong>Drum Kit</strong> sprite and from <strong>Events</strong> drag the block shown.`,
         className: ""
     },
     {   //Slide 18
-        image: "srcs/mbot2/img3/img3_18.png",
-        text: `From Control blocks, drag the <strong>forever loop</strong> and wrap all the display blocks.<br>
-        What is a loop?`,
+        image: "srcs/cyberpi/img3/img3_18.png",
+        text: `Let’s add our music sound.<br>
+        Test it by tilting the CyberPi backward.`,
         className: ""
     },
     {   //Slide 19
-        image: "srcs/mbot2/img3/img3_19.png",
-        text: `Drag the following blocks to the workspace. Press the space key in your keyboard.<br>
-        What is the difference?`,
+        image: "srcs/cyberpi/img3/img3_19.png",
+        text: `Let’s add a small animation to our sprite.<br>
+        Place the following blocks and test again!`,
         className: ""
     },
     {   //Slide 20
-        image: "srcs/mbot2/img3/img3_20.png",
-        text: `Red light will not turn off. Add a delay and change the color to green.<br>
-        What is a delay?`,
+        image: "srcs/cyberpi/img3/img3_20.png",
+        text: `We’ll do the same for the cymbal.<br>
+        Since we’ll use the same logic, copy the code by <strong>dragging</strong> it to the <strong>cymbal</strong> sprite.`,
         className: ""
     },
     {   //Slide 21
-        image: "srcs/mbot2/img3/img3_21.png",
-        text: `Complete the traffic light code with delays.<br>
-        The last one is important?`,
+        image: "srcs/cyberpi/img3/img3_21.png",
+        text: `Inside the cymbal sprite, you’ll see the same code.<br>
+        Let’s change these two parameters.`,
         className: ""
     },
     {   //Slide 22
-        video: "srcs/mbot2/img3/img3_22.mp4",
-        text: `<strong>Challenge:</strong> Red light, green light!<br>
-        mBot2 moves on green light and stops on red light.`,
+        image: "srcs/cyberpi/img3/img3_22.png",
+        text: `<strong>Challenge:</strong> Create two more instruments for two other CyberPi actions.`,
         className: ""
     },
 ];
