@@ -15,8 +15,8 @@ const slides = [
         className: ""
     },
     {   //Slide 4
-        video: "srcs/cyberpi/img3/img3_4.mp4",
-        text: `In mBlock, a message is an event that helps other sprites or devices know what to do.`,
+        image: "srcs/cyberpi/img3/img3_4.png",
+        text: `In mBlock, a <strong>message</strong> is an event that helps other sprites or devices know what to do.`,
         className: ""
     },
     {   //Slide 5
@@ -27,7 +27,7 @@ const slides = [
     },
     {   //Slide 6
         image: "srcs/cyberpi/img3/img3_6.png",
-        text: `First, we need a new category.<br>
+        text: `First, we need a new extension.<br>
         Go to <strong>Sprites</strong>, click <strong>extension</strong>, and add <strong>Music</strong>.`,
         className: ""
     },
@@ -109,7 +109,7 @@ const slides = [
     },
     {   //Slide 21
         image: "srcs/cyberpi/img3/img3_21.png",
-        text: `Inside the cymbal sprite, you’ll see the same code.<br>
+        text: `Inside the <strong>cymbal</strong> sprite, you’ll see the same code.<br>
         Let’s change these two parameters.`,
         className: ""
     },
