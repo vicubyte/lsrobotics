@@ -1,8 +1,8 @@
 const activityTitles = {
     "1": "Magic CyberPi!",
     "2": "Display animation!",
-    "3": "CyberBrush!",
-    "4": "CyberBand!",
+    "3": "CyberBand!",
+    "4": "CyberBrush!",
     "5": "Rocket controller!",
     "6": "Rocket Pro!",
     "7": "Temperature control!",
