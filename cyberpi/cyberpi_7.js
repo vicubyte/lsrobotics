@@ -17,8 +17,8 @@ const slides = [
     {   //Slide 4
         image: "srcs/cyberpi/img7/img7_4.png",
         text: `We’ll do the same with a fan!<br>
-        If the <strong>temperature</strong> goes above the limit, it will turn on, and when it goes down, it will turn off.`,
-        className: "anim-glow-shake"
+        If the <strong>temperature</strong> goes above the limit, it will turn on. And when it goes down, it will turn off.`,
+        className: ""
     },
     {   //Slide 5
         image: "srcs/cyberpi/img7/img7_5.png",
@@ -90,12 +90,12 @@ const slides = [
     {   //Slide 17
         image: "srcs/cyberpi/img7/img7_17.png",
         text: `We will use the <strong>greater than</strong> (>) operator.<br>
-        Drag the <strong>temperature</strong> variable into it and compare it with 28.`,
+        Drag the <strong>temperature</strong> variable into it and compare it with <strong>28</strong>.`,
         className: ""
     },
     {   //Slide 18
         image: "srcs/cyberpi/img7/img7_18.png",
-        text: `Analyze this flowchart, there is a conditional structure and a loop.<br>
+        text: `Analyze this <strong>flowchart</strong>, there is a <strong>conditional</strong> structure and a <strong>loop</strong>.<br>
         Can you explain it?`,
         className: ""
     },
@@ -118,7 +118,7 @@ const slides = [
     },
     {   //Slide 22
         image: "srcs/cyberpi/img7/img7_22.png",
-        text: `<strong>Challenge:</strong> Using what we learned, add the message event for both temperature cases so the Panda says the fan’s status.`,
+        text: `<strong>Challenge:</strong> Using what we’ve learned, add a message event for each temperature case so the Panda says the fan’s status.`,
         className: ""
     },
 ];
