@@ -10,7 +10,7 @@ const slides = [
         className: ""
     },
     {   //Slide 3
-        video: "srcs/cyberpi/img8/img8_3.mp4",
+        image: "srcs/cyberpi/img8/img8_3.png",
         text: `A <strong>PIR sensor</strong> detects movement by measuring infrared radiation from objects.`,
         className: "anim-shake"
     },
@@ -32,12 +32,12 @@ const slides = [
     },
     {   //Slide 7
         image: "srcs/cyberpi/img8/img8_7.png",
-        text: `Next, put the <strong>PIR sensor</strong> on top of the frame, with its name facing down.`,
+        text: `Next, put the <strong>PIR sensor</strong> on top of the frame.`,
         className: ""
     },
     {   //Slide 8
         image: "srcs/cyberpi/img8/img8_8.png",
-        text: `Then place the door on the supports.`,
+        text: `Then, place the door on the supports.`,
         className: ""
     },
     {   //Slide 9
@@ -111,7 +111,7 @@ const slides = [
         className: ""
     },
     {   //Slide 22
-        image: "srcs/cyberpi/img8/img8_1.png",
+        image: "srcs/cyberpi/img8/img8_22.png",
         text: `<strong>Challenge:</strong> How would you make the door open from the inside?`,
         className: ""
     },
