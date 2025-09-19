@@ -16,7 +16,7 @@ const slides = [
     },
     {   //Slide 4
         image: "srcs/cyberpi/img4/img4_4.png",
-        text: `TCyberPi uses the <strong>gyroscope</strong> to know where it is pointing!`,
+        text: `CyberPi uses the <strong>gyroscope</strong> to know where it is pointing!`,
         className: ""
     },
     {   //Slide 5
