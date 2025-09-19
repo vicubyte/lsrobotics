@@ -5,7 +5,7 @@ const slides = [
         className: ""
     },
     {   //Slide 2
-        image: "srcs/cyberpi/img4/img4_2.png",////////////
+        video: "srcs/cyberpi/img4/img4_2.mp4",
         text: `What makes the pointer move on a smart TV?`,
         className: ""
     },
@@ -60,7 +60,7 @@ const slides = [
         className: ""
     },
     {   //Slide 12
-        image: "srcs/cyberpi/img4/img4_12.png",////////////
+        video: "srcs/cyberpi/img4/img4_12.mp4",
         text: `Click the <strong>Green Flag</strong> and move your CyberPi to control the pencil!`,
         className: ""
     },
