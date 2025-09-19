@@ -22,7 +22,7 @@ const slides = [
     {   //Slide 5
         image: "srcs/cyberpi/img8/img8_5.png",
         text: `Let’s build our door!<br>
-        Attach the <strong>servo motor</strong> to the door by inserting the screws from the front and fastening the nuts on the back.`,
+        Attach the <strong>servo motor</strong> to the door by using screws and nuts.`,
         className: ""
     },
     {   //Slide 6
@@ -32,12 +32,12 @@ const slides = [
     },
     {   //Slide 7
         image: "srcs/cyberpi/img8/img8_7.png",
-        text: `Next, put the <strong>PIR sensor</strong> on top of the frame.`,
+        text: `On the other side, put the <strong>PIR sensor</strong> on top of the frame.`,
         className: ""
     },
     {   //Slide 8
         image: "srcs/cyberpi/img8/img8_8.png",
-        text: `Then, place the door on the supports.`,
+        text: `Then, place the frame supports.`,
         className: ""
     },
     {   //Slide 9
