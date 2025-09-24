@@ -115,7 +115,9 @@ const slides = [
     },
     {   //Slide 22
         image: "srcs/cyberpi/img3/img3_22.png",
-        text: `<strong>Challenge:</strong> Create two more instruments for two other CyberPi actions.`,
+        text: `<strong>Challenges:</strong><br>
+        - Create one more instrument for another CyberPi action.<br>
+        - Create one more instrument that works when pressing a key on the keyboard.<br>`,
         className: ""
     },
 ];

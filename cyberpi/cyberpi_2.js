@@ -118,7 +118,9 @@ const slides = [
     },
     {   //Slide 22
         video: "srcs/cyberpi/img2/img2_22.mp4",
-        text: `<strong>Challenge</strong>: Move the car below, and add a plane sprite that flies above it, but in the opposite direction.`,
+        text: `<strong>Challenges:</strong><br>
+        - Move the car below and add a plane sprite that flies above it in the opposite direction.<br>
+        - Create another animation that moves up or down`,
         className: ""
     },
 ];
