@@ -1,120 +1,116 @@
 const slides = [
     {   //Slide 1
-        image: "srcs/mbot2/img5/img5_1.png",
-        text: `Learn how to <strong>sense</strong> light with mBot2.`,
+        image: "srcs/cyberpi/img5/img5_1.png",
+        text: `Learn how to control a <strong>rocket game</strong> with CyberPi.`,
         className: ""
     },
     {   //Slide 2
-        video: "srcs/mbot2/img5/img5_2.mp4",
-        text: `What is a sensor? Do we have sensors?<br>
-        What is their importance in robotics?`,
+        image: "srcs/cyberpi/img5/img5_2.png",
+        text: `How do you control a character in a video game?`,
         className: ""
     },
     {   //Slide 3
-        image: "srcs/mbot2/img5/img5_3.png",
-        text: `How does mBot2 sense light?`,
+        image: "srcs/cyberpi/img5/img5_3.png",
+        text: `How can we make CyberPi work as a video game controller?`,
         className: "anim-shake"
     },
     {   //Slide 4
-        image: "srcs/mbot2/img5/img5_4.png",
-        text: `The mBot2 uses a <strong>light sensor</strong> to sense light!<br>
-        What is a light sensor? Where else do you find them?`,
+        image: "srcs/cyberpi/img5/img5_4.png",
+        text: `We can use buttons, joystick and movements to control a video game character.`,
         className: ""
     },
     {   //Slide 5
-        image: "srcs/mbot2/img5/img5_5.png",
+        image: "srcs/cyberpi/img5/img5_5.png",
         text: `Let’s start coding!<br>
-        Create a program that measure the light!`,
+        Create the main character using a <strong>rocket sprite</strong>.`,
         className: ""
     },
     {   //Slide 6
-        image: "srcs/mbot2/img5/img5_6.png",
-        text: `Check the <strong>ambient light intensity</strong> box, a variable will appear in the stage.<br>
-        Is it constant?`,
+        image: "srcs/cyberpi/img5/img5_6.png",
+        text: `Select <strong>Sprites</strong>, click <strong>add</strong>, type <strong>rocket</strong> in the search box, select <strong>Rocket16</strong>, and click <strong>OK</strong>.<br>
+        A rocket will appear on the stage.`,
         className: ""
     },
     {   //Slide 7
-        image: "srcs/mbot2/img5/img5_7.png",
-        text: `Move your robot, cover its back and tilt it in different directions.<br>
-        How does the <strong>variable</strong> change?`,
+        image: "srcs/cyberpi/img5/img5_7.png",
+        text: `Select the <strong>Panda</strong> sprite, click the <strong>x</strong> icon, confirm <strong>Delete</strong>.`,
         className: ""
     },
     {   //Slide 8
-        image: "srcs/mbot2/img5/img5_8.png",
-        text: `Make a variable with the name <strong>light</strong>. This variable will store the sensor data.`,
+        image: "srcs/cyberpi/img5/img5_8.png",
+        text: `Make a variable with the name <strong>direction</strong>. This variable will store the pointing direction of the rocket.`,
         className: ""
     },
     {   //Slide 9
-        image: "srcs/mbot2/img5/img5_9.png",
-        text: `New blocks will appear, and the variable will be displayed in the upper left corner of the stage.`,
+        image: "srcs/cyberpi/img5/img5_9.png",
+        text: `For a sprite, the direction indicates which way it is pointing.`,
         className: ""
     },
     {   //Slide 10
-        image: "srcs/mbot2/img5/img5_10.png",
-        text: `Drag the following blocks. This script will store the <strong>ambient light intensity</strong> in the variable <strong>light</strong>.`,
+        image: "srcs/cyberpi/img5/img5_10.png",
+        text: `Drag the following blocks to make the rocket point to the value of the variable.`,
         className: ""
     },
     {   //Slide 11
-        image: "srcs/mbot2/img5/img5_11.png",
-        text: `Add a <strong>forever loop</strong> to update constantly the variable. Otherwise, it will store the value only once.`,
+        image: "srcs/cyberpi/img5/img5_11.png",
+        text: `Select <strong>Devices</strong>, connect your CyberPi and add the following blocks.`,
         className: ""
     },
     {   //Slide 12
-        image: "srcs/mbot2/img5/img5_12.png",
-        text: `We will use the screen to display the light value.<br>
-        This is the label block, it can display up to 8 different labels.`,
+        image: "srcs/cyberpi/img5/img5_12.png",
+        text: `This block indicates how far the CyberPi is tilted to the right. The values range from <strong>0 to 180</strong>: positive for right, negative for left.`,
         className: ""
     },
     {   //Slide 13
-        image: "srcs/mbot2/img5/img5_13.png",
-        text: `There are three labels with different text, position and size. Analyze their differences.`,
+        image: "srcs/cyberpi/img5/img5_13.png",
+        text: `Add the new block and click the green flag to test the rocket direction!`,
         className: ""
     },
     {   //Slide 14
-        image: "srcs/mbot2/img5/img5_14.png",
-        text: `Add a <strong>show label</strong> block and set the text to the variable.`,
+        image: "srcs/cyberpi/img5/img5_14.png",
+        text: `Add the following blocks to your <strong>rocket script</strong>, this will start the movement! First two blocks set the correct size and initial position.`,
         className: ""
     },
     {   //Slide 15
-        image: "srcs/mbot2/img5/img5_15.png",
-        text: `Drag the <strong>join</strong> block and change its first text, the second text will be the variable.`,
+        image: "srcs/cyberpi/img5/img5_15.png",
+        text: `Let’s code the projectile!<br>
+        Add the following blocks to your <strong>CyberPi script</strong>. Click <strong>New message</strong>, write <strong>fire</strong> and select <strong>OK</strong>.`,
         className: ""
     },
     {   //Slide 16
-        image: "srcs/mbot2/img5/img5_16.png",
-        text: `Test your light detector by moving your mBot2.<br>
-        What are its maximum and minimum values?`,
+        image: "srcs/cyberpi/img5/img5_16.png",
+        text: `Add a new sprite, type <strong>ball</strong> in the search box, select <strong>Ball</strong>, and click <strong>OK</strong>. Change the ball size to 30.`,
         className: ""
     },
     {   //Slide 17
-        image: "srcs/mbot2/img5/img5_17.png",
-        text: `Analyze this <strong>flowchart</strong>, there is a <strong>conditional</strong> structure and a <strong>loop</strong>.<br>
-        Can you explain it?`,
+        image: "srcs/cyberpi/img5/img5_17.png",
+        text: `Drag the following blocks to the <strong>ball sprite</strong>. At the start of the game, the ball will disappear, and fire message will create a clone.`,
         className: ""
     },
     {   //Slide 18
-        image: "srcs/mbot2/img5/img5_18.png",
-        text: `Considering 50 as the threshold; light could be <strong>less than</strong>, <strong>greater than</strong> or <strong>equal</strong>.`,
+        image: "srcs/cyberpi/img5/img5_18.png",
+        text: `We use clones to create multiple sprites at the same time, all following the same logic.`,
         className: ""
     },
     {   //Slide 19
-        image: "srcs/mbot2/img5/img5_19.png",
-        text: `Drag the following blocks. This is the conditional structure using the light variable and LED blocks.`,
+        image: "srcs/cyberpi/img5/img5_19.png",
+        text: `Drag the following blocks. The ball will move to the rocket’s position, face the same direction, then go to the tip and become visible.`,
         className: ""
     },
     {   //Slide 20
-        image: "srcs/mbot2/img5/img5_20.png",
-        text: `Compare the mBlock script with the previous flowchart. Understand its structure.`,
+        image: "srcs/cyberpi/img5/img5_20.png",
+        text: `Add the following blocks. The ball will keep moving until it <strong>touches an edge</strong>. Then, the clone will disappear.`,
         className: ""
     },
     {   //Slide 21
-        image: "srcs/mbot2/img5/img5_21.png",
-        text: `Drag the conditional structure under the label block and test your mBot2!`,
+        image: "srcs/cyberpi/img5/img5_21.png",
+        text: `Test your rocket game!<br>
+        Press the <strong>green flag</strong> to play and <strong>red square</strong> to stop.`,
         className: ""
     },
     {   //Slide 22
-        video: "srcs/mbot2/img5/img5_22.mp4",
-        text: `<strong>Challenge:</strong> Play your voice recording and move your mBot2 when the light sensor detects a high value.`,
+        image: "srcs/cyberpi/img5/img5_22.png",
+        text: `<strong>Challenge:</strong> Add a speed boost with button A.`,
         className: ""
     },
 ];
