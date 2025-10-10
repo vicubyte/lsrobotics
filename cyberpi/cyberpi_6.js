@@ -60,7 +60,7 @@ const slides = [
     {   //Slide 12
         image: "srcs/cyberpi/img6/img6_12.png",
         text: `Add the following blocks.<br>
-        The bomb will keep moving until it <strong>touches an edge<strong>. Then, the clone will disappear.`,
+        The bomb will keep moving until it <strong>touches an edge</strong>. Then, the clone will disappear.`,
         className: ""
     },
     {   //Slide 13
