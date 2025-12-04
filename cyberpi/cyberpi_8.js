@@ -21,7 +21,7 @@ const slides = [
     },
     {   //Slide 5
         image: "srcs/cyberpi/img8/img8_5.png",
-        text: `Let’s build our door!<br>
+        text: `Let’s build our system!<br>
         Attach the <strong>servo motor</strong> to the door by using screws and nuts.`,
         className: ""
     },
