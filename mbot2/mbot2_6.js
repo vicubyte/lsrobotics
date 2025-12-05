@@ -105,7 +105,7 @@ const slides = [
     },
     {   //Slide 21
         image: "srcs/mbot2/img6/img6_21.png",
-        text: `Finally, change the position of the label to the <strong>middle at top</strong>. Test your new program!`,
+        text: `Finally, <strong>stop other scripts in sprite</strong> and change the position of the label to the <strong>middle at top</strong>. Test your new program!`,
         className: ""
     },
     {   //Slide 22
