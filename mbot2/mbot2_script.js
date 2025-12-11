@@ -12,13 +12,16 @@ const activityTitles = {
 const imageCache = [];
 let currentSlide = 1;
 let endSlideOn = 0;
+let currentLevel = 0;
+window.isAdmin = false;
 
 function getNivelFromURL() {
     const params = new URLSearchParams(window.location.search);
     return params.get('lvl') || "1";
-  }
+}
 
 function loadSlidesScript(nivel) {
+    currentLevel = Number(nivel);
     const script = document.createElement("script");
     script.src = `mbot2/mbot2_${nivel}.js`;
     script.onload = () => {
@@ -33,7 +36,7 @@ function loadSlidesScript(nivel) {
         document.getElementById("slide-media").src = "srcs/comm/404.png";
     };
     document.body.appendChild(script);
-  }
+}
 
 function preloadMedia() {
     slides.forEach((slide, index) => {
@@ -44,6 +47,14 @@ function preloadMedia() {
     });
     const extraImage = new Image();
     extraImage.src = "srcs/comm/trophy.png";
+}
+
+// Challenge solution
+function getChallengeSlide(level) {
+    const lvl = Number(level);
+    if (lvl === 1) return null;
+    if (lvl === 2) return 17;
+    return slides.length;
 }
 
 function updateSlide() {
@@ -75,6 +86,18 @@ function updateSlide() {
 
     document.getElementById("slide-number").textContent = String(currentSlide).padStart(2, '0');
     mediaElement.className = currentSlideData.className || "";
+
+    // Challenge solution
+      const challengeSlide = getChallengeSlide(currentLevel);
+      const isAdmin = window.isAdmin;
+
+    if (isAdmin && (challengeSlide && currentSlide === challengeSlide)) {
+        solnBtn.style.display = "block";
+    } else {
+        solnBtn.style.display = "none";
+        solutionOverlay.style.display = "none";
+        solutionVisible = false;
+    }
 }
 
 function endSlide() {
@@ -99,6 +122,11 @@ function endSlide() {
     textElement.style.color = "white";
     let textContainer = document.querySelector(".info-box");
     textContainer.style.backgroundColor = colorBlue;
+
+    //Challenge solution hide
+    if (solnBtn) solnBtn.style.display = "none";
+    if (solutionOverlay) solutionOverlay.style.display = "none";
+    solutionVisible = false;
 }
 
 function nextSlide() {
@@ -123,36 +151,21 @@ function prevSlide() {
 }
 
 async function irHome() {
-    // 1) Registrar la acción (si falla, igual seguimos)
-    try {
-        await registrarAccion("home");
-    } catch (e) {
-        console.warn("No se pudo registrar 'home':", e);
-    }
-
-    // 2) Limpiar el flag que permite refrescar este nivel
-    const params = new URLSearchParams(location.search);
-    const lvl = Number(params.get("lvl") || 0);
-    const isMbot2 = location.pathname.toLowerCase().includes("mbot2");
-    const robot = isMbot2 ? "mBot2" : "CyberPi";
-    if (lvl) {
-        sessionStorage.removeItem(`levelSession:${robot}:${lvl}`);
-    }
-
-    // 3) Saltar el welcome al volver al index
+    await registrarAccion("home");
     sessionStorage.setItem("skipWelcome", "1");
-
-    // 4) Ir directo a la vista del robot correspondiente
-    const hash = isMbot2 ? "#mbot2" : "#cyberpi";
-    location.href = `index.html${hash}`;
+    location.href = "index.html#mbot2";
 }
 
 async function accionNext() {
+    solutionOverlay.style.display = "none";
+    solutionVisible = false;
     await registrarAccion("next");
     nextSlide();
 }
 
 async function accionPrev() {
+    solutionOverlay.style.display = "none";
+    solutionVisible = false;
     await registrarAccion("previous");
     prevSlide();
 }
@@ -162,4 +175,47 @@ document.addEventListener("DOMContentLoaded", function () {
     const title = activityTitles[nivel] || `Not available`;
     document.title = title;
     loadSlidesScript(nivel);
+});
+
+// Challenge solution
+const solutionImages = {
+    2: "srcs/mbot2/challenges/ch_mb2_2.png",
+    3: "srcs/mbot2/challenges/ch_mb2_3.png",
+    4: "srcs/mbot2/challenges/ch_mb2_4.png",
+    5: "srcs/mbot2/challenges/ch_mb2_5.png",
+    6: "srcs/mbot2/challenges/ch_mb2_6.png",
+    7: "srcs/mbot2/challenges/ch_mb2_7.png",
+    8: "srcs/mbot2/challenges/ch_mb2_8.png"
+};
+
+const solnBtn = document.getElementById("solnBtn");
+const solutionOverlay = document.getElementById("solutionOverlay");
+const solutionImage = document.getElementById("solutionImage");
+
+let solutionVisible = false;
+
+solnBtn.addEventListener("click", async () => {
+  solutionVisible = !solutionVisible;
+
+  if (solutionVisible) {
+    try {
+        await registrarAccion("solution");
+    } catch (e) {
+        console.warn("No se pudo registrar 'solution':", e);
+    }
+
+    const imgPath = solutionImages[currentLevel];
+
+    if (imgPath) {
+        solutionImage.src = imgPath;
+        }
+        solutionOverlay.style.display = "flex";
+    } else {
+        solutionOverlay.style.display = "none";
+    }
+});
+
+solutionOverlay.addEventListener("click", () => {
+  solutionOverlay.style.display = "none";
+  solutionVisible = false;
 });
