@@ -12,6 +12,8 @@ const activityTitles = {
 const imageCache = [];
 let currentSlide = 1;
 let endSlideOn = 0;
+let currentLevel = 0;
+window.isAdmin = false;
 
 function getNivelFromURL() {
     const params = new URLSearchParams(window.location.search);
@@ -19,6 +21,7 @@ function getNivelFromURL() {
   }
 
 function loadSlidesScript(nivel) {
+    currentLevel = Number(nivel);
     const script = document.createElement("script");
     script.src = `cyberpi/cyberpi_${nivel}.js`;
     script.onload = () => {
@@ -44,6 +47,12 @@ function preloadMedia() {
     });
     const extraImage = new Image();
     extraImage.src = "srcs/comm/trophy.png";
+}
+
+// Challenge solution
+function getChallengeSlide(level) {
+    const lvl = Number(level);
+    return slides.length;
 }
 
 function updateSlide() {
@@ -75,6 +84,18 @@ function updateSlide() {
 
     document.getElementById("slide-number").textContent = String(currentSlide).padStart(2, '0');
     mediaElement.className = currentSlideData.className || "";
+    
+    // Challenge solution
+      const challengeSlide = getChallengeSlide(currentLevel);
+      const isAdmin = window.isAdmin;
+
+    if (isAdmin && (challengeSlide && currentSlide === challengeSlide)) {
+        solnBtn.style.display = "block";
+    } else {
+        solnBtn.style.display = "none";
+        solutionOverlay.style.display = "none";
+        solutionVisible = false;
+    }
 }
 
 function endSlide() {
@@ -99,6 +120,11 @@ function endSlide() {
     textElement.style.color = "white";
     let textContainer = document.querySelector(".info-box");
     textContainer.style.backgroundColor = colorBlue;
+
+    //Challenge solution hide
+    if (solnBtn) solnBtn.style.display = "none";
+    if (solutionOverlay) solutionOverlay.style.display = "none";
+    solutionVisible = false;
 }
 
 function nextSlide() {
@@ -129,11 +155,15 @@ async function irHome() {
 }
 
 async function accionNext() {
+    solutionOverlay.style.display = "none";
+    solutionVisible = false;
     await registrarAccion("next");
     nextSlide();
 }
 
 async function accionPrev() {
+    solutionOverlay.style.display = "none";
+    solutionVisible = false;
     await registrarAccion("previous");
     prevSlide();
 }
@@ -143,4 +173,48 @@ document.addEventListener("DOMContentLoaded", function () {
     const title = activityTitles[nivel] || `Not available`;
     document.title = title;
     loadSlidesScript(nivel);
+});
+
+// Challenge solution
+const solutionImages = {
+    1: "srcs/cyberpi/challenges/ch_cpi_1.png",
+    2: "srcs/cyberpi/challenges/ch_cpi_2.png",
+    3: "srcs/cyberpi/challenges/ch_cpi_3.png",
+    4: "srcs/cyberpi/challenges/ch_cpi_4.png",
+    5: "srcs/cyberpi/challenges/ch_cpi_5.png",
+    6: "srcs/cyberpi/challenges/ch_cpi_6.png",
+    7: "srcs/cyberpi/challenges/ch_cpi_7.png",
+    8: "srcs/cyberpi/challenges/ch_cpi_8.png"
+};
+
+const solnBtn = document.getElementById("solnBtn");
+const solutionOverlay = document.getElementById("solutionOverlay");
+const solutionImage = document.getElementById("solutionImage");
+
+let solutionVisible = false;
+
+solnBtn.addEventListener("click", async () => {
+  solutionVisible = !solutionVisible;
+
+  if (solutionVisible) {
+    try {
+        await registrarAccion("solution");
+    } catch (e) {
+        console.warn("No se pudo registrar 'solution':", e);
+    }
+    
+    const imgPath = solutionImages[currentLevel];
+
+    if (imgPath) {
+        solutionImage.src = imgPath;
+        }
+        solutionOverlay.style.display = "flex";
+    } else {
+        solutionOverlay.style.display = "none";
+    }
+});
+
+solutionOverlay.addEventListener("click", () => {
+  solutionOverlay.style.display = "none";
+  solutionVisible = false;
 });
