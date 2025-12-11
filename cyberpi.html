@@ -9,6 +9,14 @@
     <link rel="stylesheet" href="styles.css">
     
 </head>
+
+<!-- Overlay de solución -->
+<div id="solutionOverlay">
+  <div class="solution-content">
+    <img id="solutionImage" src="" alt="Challenge Solution">
+  </div>
+</div>
+
 <body>
   <script>
     (function () {
@@ -54,6 +62,7 @@
     <div class="image-center" id="slide-media-container"></div>
     <button class="prev-btn" onclick="accionPrev()">←</button>
     <button class="next-btn" onclick="accionNext()">→</button>
+    <button id="solnBtn" class="button">Solution</button>
     <div class="info-box">
         <div id="slide-text">Text.</div>
     </div>
@@ -61,7 +70,7 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-app.js";
         import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-auth.js";
-        import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
+        import { getFirestore, collection, addDoc, serverTimestamp, doc, getDoc} from "https://www.gstatic.com/firebasejs/11.7.1/firebase-firestore.js";
       
         const firebaseConfig = {
           apiKey: "AIzaSyB5G4RxthuaADgJg1-xuJCtR_oOOYrBals",
@@ -97,10 +106,38 @@
             console.error("Register error:", e);
           }
         }
+
+        async function checkAdminSolution(auth, db) {
+          const user = auth.currentUser;
+          const solnBtn = document.getElementById("solnBtn");
+
+          if (!user) {
+              solnBtn.style.display = "none";
+              window.isAdmin = false;
+              return;
+          }
+
+          try {
+              const ref = doc(db, "usuarios", user.uid);
+              const snap = await getDoc(ref);
+              window.isAdmin = !!snap.data()?.admin;
+
+              if (!window.isAdmin) {
+                  solnBtn.style.display = "none";
+              }
+              
+          } catch (e) {
+              console.warn("No pude verificar rol admin:", e);
+              window.isAdmin = false;
+              solnBtn.style.display = "none";
+          }
+
+          if (window.updateSlide) window.updateSlide();
+        }
       
         window.registrarAccion = registrarAccion;
       
-        onAuthStateChanged(auth, user => {
+        onAuthStateChanged(auth, async(user) => {
             if (!user && location.hostname === "localhost") {
                 console.warn("Not authenticated");
                 return;
@@ -108,6 +145,7 @@
 
             if (user) {
                 registrarAccion("start");
+                await checkAdminSolution(auth, db);
             }
         });
       </script>      
