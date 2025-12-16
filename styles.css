@@ -130,6 +130,7 @@ body {
     right: 10px;
 }
 #solnBtn {
+    display: none;
     position: absolute;
     top: 0px;
     left: 50%;
@@ -227,6 +228,29 @@ body {
     background-color: var(--color-blue);
     color: white;
 }
+
+.home-btn-v2:hover {
+    transform: translateY(50%) scale(1.1);
+    background-color: #e0e0e0;
+    border: 2px solid var(--color-blue);
+}
+
+.home-btn-v2 {
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 10px; top: -15px;
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 50%;
+    background: none;
+    border: 2px solid gray;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
 .slide-counter {
     position: absolute;
     top: 0px;
