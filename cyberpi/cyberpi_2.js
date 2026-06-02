@@ -27,7 +27,7 @@ const slides = [
     },
     {   //Slide 6
         image: "srcs/cyberpi/img2/img2_6.png",
-        text: `First, it is important to be in <strong>Upload<strong> Mode.<br>
+        text: `First, it is important to be in <strong>Upload Mode<strong>.<br>
         Click <strong>extension</strong>, and add <strong>Display+</strong>.`,
         className: ""
     },
